@@ -61,7 +61,7 @@ func main() {
 	for {
 		for metricID, query := range qConfig {
 			ts := time.Now()
-			resp, err := api.Query(context.Background(), query, ts)
+			resp, _, err := api.Query(context.Background(), query, ts)
 			if err != nil {
 				level.Error(logger).Log("msg", "Couldn't query Prometheus", "error", err.Error())
 				continue
